@@ -11,6 +11,6 @@ Rails.application.routes.draw do
 
   get :dashboard, to: "dashboard#index"
   resources :tweets, only: :create
-  # Defines the root path route ("/")
+  resources :usernames, only: [:new, :update]
   root "home#index"
 end
