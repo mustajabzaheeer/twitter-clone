@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :tweets, dependent: :destroy
+  validates :username, uniqueness: {case_sensitive: false}, presence: true, allow_blank: true
 end
