@@ -12,10 +12,20 @@ RSpec.describe "Usernames", type: :request do
   end
 
   describe "Put /update" do
-    it "updates user" do
-      put username_path(user), params: { user:{ username: "username" } }
-      expect(user.reload.username).to eq("username")
-      expect(response).to redirect_to(dashboard_path)
+    context "valid params" do
+      it "updates user" do
+        put username_path(user), params: { user:{ username: "username" } }
+        expect(user.reload.username).to eq("username")
+        expect(response).to redirect_to(dashboard_path)
+      end
     end
+
+    context "valid params" do
+      it "redirect to" do
+        put username_path(user), params: { user:{ username: "" } }
+        expect(response).to redirect_to(new_username_path) 
+      end
+    end
+
   end
 end
