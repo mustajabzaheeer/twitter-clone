@@ -3,32 +3,13 @@
 	<%= link_to 'For you', dashboard_path, class: "fs-5 px-2 fw-medium text-dark text-decoration-none"%>
 	<hr style="margin: 0.7rem 0; opacity: 0.1;">
 	<div class="p-2">
-	  <%= form_with model: Tweet.new, url: tweets_path,method: :post, class: 'form text-center', local: :true do |f|%>
-	  	<div class="row">
-		    <div class="col-1">
-		    	<%= link_to "#" do %> 
-		    		<%= image_tag "man.png", class: "rounded-circle", style: 'height: 50px;'%>
-	    		<% end %>
-		    </div>
-		    <div class="col-11">
-					<%= f.text_area :body , class: 'form-control tweet-input width-100 fs-4', placeholder: "What's on your mind?"%>
-		    </div>
-		  </div>
-	</div>
-	<hr style="margin: 0.7rem 0; opacity: 0.1;">
-	<div class="p-0">
-			<div class="text-end">
-				<%= f.submit 'Tweet', class: "btn btn-twitter rounded-pill" %>
-			</div>
-		<% end %>	
+	  <%= render "shared/tweet_form" %>
 	</div>
 	<hr style="margin: 0.7rem 0; opacity: 0.1;">
 
 
 	<div class="p-2"> 
-		<% Tweet.find_each do |t|%>
-			<li><%= t.body %></li>
-		<% end %>
+		<%= render Tweet.order(created_at: :desc)%>
 	</div>
 </div>
 <div class="vr p-0" style="opacity: 0.1;"></div>

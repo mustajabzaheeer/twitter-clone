@@ -38,19 +38,7 @@
         <button type="button" class="btn-close m-0" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-          <%= form_with model: Tweet.new, url: tweets_path,method: :post, class: 'form text-center', local: :true do |f|%>
-            <div class="row">
-                <div class="col-1">
-                    <%= image_tag "man.png", class: "rounded-circle", style: 'height: 40px;'%>
-                </div>
-                <div class="col-11">
-                    <%= f.text_area :body , class: 'form-control tweet-input width-100', placeholder: "What's on your mind?"%>
-                </div>
-              </div>
-                <div class="text-end">
-                    <%= f.submit 'Tweet', class: "btn btn-primary btn-twitter rounded-pill" %>
-                </div>
-            <% end %>
+          <%= render "shared/tweet_form" %>
       </div>
     </div>
   </div>
