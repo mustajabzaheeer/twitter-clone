@@ -1,4 +1,4 @@
-<%= form_with model: Tweet.new, url: tweets_path,method: :post, class: 'form text-center', local: :true do |f|%>
+<%= form_with model: Tweet.new, url: tweets_path,method: :post, class: 'form text-center', data: { controller: "tweet-form" } do |f|%>
 	<div class="row">
 		<div class="col-1 px-1">
 			<%= link_to "#" do %> 
