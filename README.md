@@ -5,11 +5,17 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version => 3.1.2
+* Command to setup Project =>
+    * install     
 
 * System dependencies
+    * Node version 18
 
-* Configuration
+* Run these command to configure
+    * bundle install (to install the gems)
+    * yarn install (in the project directory)
+    * rails assets:precompile (it will pre compile all the assets)
 
 * Database creation
 
