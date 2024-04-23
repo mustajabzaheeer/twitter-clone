@@ -1,0 +1,3 @@
+<%= turbo_stream.prepend "tweets" do %>
+  <%= render "tweets/tweet", locals: { tweet_presenter: TweetPresenter.new(@tweet) } %>
+<% end %>

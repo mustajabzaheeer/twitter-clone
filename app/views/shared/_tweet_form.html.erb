@@ -1,0 +1,15 @@
+<%= form_with model: Tweet.new, url: tweets_path,method: :post, class: 'form text-center', data: { controller: "tweet-form" } do |f|%>
+	<div class="row">
+		<div class="col-1 px-1">
+			<%= link_to "#" do %> 
+				<%= image_tag(current_user.avatar.present? ? current_user.avatar : "user.png", class: "rounded-circle", style: 'height: 49px;') %>
+			<% end %>
+		</div>
+		<div class="col-11">
+			<%= f.text_area :body , class: 'form-control tweet-input width-100 fs-4', placeholder: "What's on your mind?"%>
+		</div>
+	</div>
+	<div class="text-end">
+		<%= f.submit 'Tweet', class: "btn btn-twitter rounded-pill" %>
+	</div>
+<% end %>

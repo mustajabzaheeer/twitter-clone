@@ -1,0 +1,31 @@
+.tweet {
+	-moz-transition: all .1s ease-in;
+    -o-transition: all .1s ease-in;
+    -webkit-transition: all .1s ease-in;
+    transition: all .1s ease-in;
+	
+	&:hover {
+		background-color: $gray-100;
+		cursor: pointer;
+	}
+}
+
+
+$colors: #ff5733, #33ff57, #5733ff, #ff5733;
+
+@for $i from 1 through length($colors) {
+  $color: nth($colors, $i);
+
+  .circle-#{$i}:hover {
+  	
+    background-color: rgba($color, 0.5);
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    margin: 2px auto;
+
+    & svg {
+    	fill: $color;
+    }
+  }
+}

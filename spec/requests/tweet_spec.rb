@@ -9,7 +9,7 @@ RSpec.describe "Tweets", type: :request do
         expect do 
           post tweets_path, params: { tweet: {body: "This is a tweet"} }
         end.to change { Tweet.count }.by(1)
-        expect(response).to redirect_to(root_path)
+        expect(response).to redirect_to(dashboard_path)
       end
     end
 

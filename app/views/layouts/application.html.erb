@@ -14,6 +14,20 @@
     <% if flash.any? %>
       <%= render 'shared/flashes' %>
     <% end %>
-    <%= yield %>
+    <% if user_signed_in? %>
+      <% if controller_name == "usernames"%>
+        <%= yield %>
+      <% else %>
+        <div class="container mt-2">
+          <div class="row">
+            <%= render "shared/sidebar"%>
+            <%= yield %>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <%= yield %>
+    <% end %>
+
   </body>
 </html>
